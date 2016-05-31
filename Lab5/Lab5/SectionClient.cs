@@ -44,8 +44,7 @@ namespace Lab5
             Console.WriteLine("Незанят");
             Thread.Sleep(1000);    
             while (true)
-            {
-                
+            {                
                 try
                 {
                     var response = SendCommand(Request.IsVendorVacant);

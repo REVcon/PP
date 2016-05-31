@@ -6,9 +6,8 @@ using System.Threading;
 using System.Runtime.Remoting.Contexts;
 
 namespace Lab5
-{
-    [Synchronization]
-    class BuyerClient : ContextBoundObject
+{   
+    class BuyerClient
     {
         private const string PipeName = "lab5_pipe";
         private int __id;
@@ -17,6 +16,7 @@ namespace Lab5
         public BuyerClient()
         {
             __id = 0;
+            __extID = 0;
         }
 
         private NamedPipeClientStream CreatePipeClientStream()

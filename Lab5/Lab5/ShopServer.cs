@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Pipes;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
-using System.IO.MemoryMappedFiles;
 
 namespace Lab5
 {
@@ -21,12 +19,10 @@ namespace Lab5
     }
 
     enum Response
-    {
-        Service = 0,
-        Queue = 1,
-        OK = 2,
-        NO = 3,
-        WithoutVendor = 4
+    {       
+        OK = 1,
+        NO = 2,
+        WithoutVendor = 3
     }
 
     class ShopServer
@@ -157,7 +153,6 @@ namespace Lab5
             pipeServer.WriteByte((byte)Response.NO);
             int some = (int)__buyers[userId];
             pipeServer.WriteByte((byte)some);
-            return;
         }
 
         private void HandleLeftSection(int userId)
@@ -179,7 +174,6 @@ namespace Lab5
                 return;
             }            
             pipeServer.WriteByte((byte)Response.NO);
-            //pipeServer.WriteByte((byte)__buyers.Keys.OfType<int>().Single(s =>(int)__buyers[s] == userId));
             int buyer = (int)__buyerByVendor[userId];
             pipeServer.WriteByte((byte)buyer);
         }

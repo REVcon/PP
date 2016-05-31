@@ -1,5 +1,5 @@
 @echo off
-set /a buyer_count=1
+set /a buyer_count=10
 set /a vendor_count=2
 
 start Lab5\bin\Debug\Lab5.exe shop
